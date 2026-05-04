@@ -6,16 +6,15 @@
 #- el objetivo diario recomendado en ml
 #- el mensaje de estado de hidratación
 
-
 def calcular_objetivo_ml(peso_kg, actividad):
-    objetivo = peso_kg * 35
-    if actividad == "bajo":
-        objetivo *= 1.2
-    elif actividad == "medio":
-        objetivo *= 1.55
-    elif actividad == "alto":
-        objetivo *= 1.725
-    return objetivo
+    multiplicadores_actividad = {
+        "bajo": 1.2,
+        "medio": 1.55,
+        "alto": 1.725
+    }
+    base_objetivo = peso_kg * 35
+    multiplicador = multiplicadores_actividad.get(actividad, 1) 
+    return base_objetivo * multiplicador
 
 def determinar_estado_hidratacion(agua_consumida, objetivo):
     if agua_consumida < objetivo:
