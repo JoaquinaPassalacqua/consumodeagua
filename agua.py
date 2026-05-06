@@ -41,6 +41,11 @@ while True:
         objetivo_diario = calcular_objetivo_ml(peso, actividad)
         estado = determinar_estado_hidratacion(agua_consumida, objetivo_diario)
 
+        print("\n--- DATOS INGRESADOS ---")
+        print(f"Peso: {peso} kg")
+        print(f"Nivel de actividad: {actividad}")
+        print(f"Agua consumida: {agua_consumida:.0f} ml")
+
         print(f"\n--- Resultados ---")
         print(f"Objetivo diario recomendado: {objetivo_diario:.0f} ml")
         print(f"Estado de hidratación: {estado}\n")
